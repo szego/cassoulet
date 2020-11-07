@@ -1,0 +1,23 @@
+Package: cassoulet
+Title: Blend model predictions with ease
+Version: 0.0.1
+Authors@R: 
+    person(given = "Antonio R.",
+           family = "Vargas",
+           role = c("aut", "cre"),
+           email = "antonio.ravon.vargas@gmail.com",
+           comment = c(ORCID = "0000-0002-1198-4856"))
+Description: Provides helper functions for cross validation and model stacking.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    tune,
+    dplyr,
+    rlang,
+    purrr,
+    magrittr,
+    stats,
+    generics
