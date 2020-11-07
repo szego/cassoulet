@@ -21,3 +21,5 @@ Imports:
     magrittr,
     stats,
     generics
+URL: https://github.com/szego/cassoulet
+BugReports: https://github.com/szego/cassoulet/issues
