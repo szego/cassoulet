@@ -20,6 +20,8 @@ Imports:
     purrr,
     magrittr,
     stats,
-    generics
+    generics,
+    themis,
+    workflows
 URL: https://github.com/szego/cassoulet
 BugReports: https://github.com/szego/cassoulet/issues
