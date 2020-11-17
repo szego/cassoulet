@@ -1,3 +1,7 @@
+#' @importFrom stats predict
+#' @export
+stats::predict
+
 #' Predict using multiple models
 #'
 #' @description
@@ -24,7 +28,7 @@ predict.wflist <- function(.fits, new_data, mode) {
   purrr::map_dfc(
     1:length(.fits),
     ~ .fits[[.x]] %>%
-      predict(new_data, type = type) %>%
+      stats::predict(new_data, type = type) %>%
       dplyr::select(dplyr::starts_with(".pred")[1]) %>%
       stats::setNames(names(.fits)[.x])
   )
