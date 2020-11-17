@@ -13,7 +13,7 @@ generics::fit
 #' @return A named list of fitted `workflow` objects.
 #' @export
 fit.wflist <- function(.workflows, data) {
-  out <- purrr::map(.workflows, ~fit(.x, data))
+  out <- purrr::map(.workflows, ~generics::fit(.x, data))
 
   class(out) <- c("wflist", class(out))
 
