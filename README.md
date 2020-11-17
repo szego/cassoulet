@@ -7,10 +7,11 @@
 
 <!-- badges: end -->
 
-*Version 0.0.1*
+*Version 0.0.2*
 
-This package provides some helper functions for doing cross-validation
-and model stacking with [tidymodels](https://www.tidymodels.org/).
+This package provides some helper functions for blending predictions
+from multiple models or multiple datasets with
+[tidymodels](https://www.tidymodels.org/).
 
 ## Installation
 

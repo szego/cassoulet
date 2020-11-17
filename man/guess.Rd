@@ -4,10 +4,10 @@
 \alias{guess}
 \title{Predict unseen data}
 \usage{
-guess(wf_object, new_data, mode)
+guess(.workflow, new_data, mode)
 }
 \arguments{
-\item{wf_object}{A \code{workflow} object.}
+\item{.workflow}{A \code{workflow} object.}
 
 \item{new_data}{A \code{data.frame} containing data with which to predict.}
 
