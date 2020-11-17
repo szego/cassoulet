@@ -16,5 +16,5 @@
 #' @export
 step_multidownsample <- function(.recipe, ..., .replicates) {
   x <- rlang::enquos(...)
-  map(1:.replicates, ~ themis::step_downsample(.recipe, !!!x))
+  purrr::map(1:.replicates, ~ themis::step_downsample(.recipe, !!!x))
 }
