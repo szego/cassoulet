@@ -22,6 +22,8 @@ Imports:
     stats,
     generics,
     themis,
-    workflows
+    workflows,
+    ranger,
+    xgboost
 URL: https://github.com/szego/cassoulet
 BugReports: https://github.com/szego/cassoulet/issues
