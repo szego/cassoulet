@@ -4,12 +4,12 @@
 \alias{add_recipes}
 \title{Add a list of recipes to a workflow}
 \usage{
-add_recipes(.workflow, .recipes, ...)
+add_recipes(x, recipes, ...)
 }
 \arguments{
-\item{.workflow}{A \code{workflow} object.}
+\item{x}{A \code{workflow} object.}
 
-\item{.recipes}{A list of \code{recipe} objects.}
+\item{recipes}{A list of \code{recipe} objects.}
 
 \item{...}{Arguments passed on to \code{workflows::add_recipe()}.}
 }
