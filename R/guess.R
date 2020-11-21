@@ -9,12 +9,14 @@
 #' mode = "classification" provides class probabilities.
 #'
 #' @param .workflow A `workflow` object.
+#' @param object A `workflow` object.
 #' @param new_data A `data.frame` containing data with which to predict.
 #' @param mode Either "regression" or "classification".
 #'
 #' @return A `data.frame` (new_data with new columns containing the predictions).
 #' @export
 guess <- function(.workflow, new_data, mode) {
+guess <- function(object, new_data, mode) {
   if(mode == "regression") {
     type <- "pred_int"
   } else if(mode == "classification") {
@@ -28,5 +30,7 @@ guess <- function(.workflow, new_data, mode) {
     new_data,
     predict(.workflow, new_data = new_data),
     predict(.workflow, new_data = new_data, type = type)
+    predict(object, new_data = new_data),
+    predict(object, new_data = new_data, type = type)
   )
 }
