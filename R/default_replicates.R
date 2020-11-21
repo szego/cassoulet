@@ -17,6 +17,9 @@
 #' @return A positive integer
 #' @export
 default_replicates <- function(x, outcome, coverage = 0.8) {
+  if(!("data.frame" %in% class(x)))
+    stop("`x` must be a data.frame.")
+
   outcome_tab <-
     x %>%
     dplyr::pull({{outcome}}) %>%

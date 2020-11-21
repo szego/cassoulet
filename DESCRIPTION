@@ -1,6 +1,6 @@
 Package: cassoulet
-Title: Blend predictions with ease
-Version: 0.0.2
+Title: Blend model predictions with ease
+Version: 0.0.2.1
 Authors@R: 
     person(given = "Antonio R.",
            family = "Vargas",

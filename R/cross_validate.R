@@ -72,7 +72,7 @@ cross_validate.workflow <- function(x, resamples, truth, mode) {
       ) %>%
       return()
   } else {
-    stop("Argument 'mode' must be one of the following: regression, classification")
+    stop("`mode` must be one of the following: regression, classification")
   }
 }
 
@@ -149,7 +149,7 @@ cross_validate.wflist <- function(x, resamples, truth, mode) {
             .model = names(x)[i],
             .correct = .pred_class == !!rlang::sym(truth)
           ) %>%
-          dplyr::select(.model, everything())
+          dplyr::select(.model, dplyr::everything())
       }
     )
 
@@ -197,6 +197,6 @@ cross_validate.wflist <- function(x, resamples, truth, mode) {
       dplyr::arrange(match(model, names(x))) %>%
       return()
   } else {
-    stop("Argument 'mode' must be one of the following: regression, classification")
+    stop("`mode` must be one of the following: regression, classification")
   }
 }

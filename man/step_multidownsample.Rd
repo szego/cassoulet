@@ -4,10 +4,10 @@
 \alias{step_multidownsample}
 \title{Generate replicate recipes that down-sample the same data}
 \usage{
-step_multidownsample(.recipe, ..., .replicates)
+step_multidownsample(recipe, ..., .replicates)
 }
 \arguments{
-\item{.recipe}{A \code{recipe} object.}
+\item{recipe}{A \code{recipe} object.}
 
 \item{...}{One or more selector functions to choose which variable is used
 to sample the data. See \code{recipes::selections()} for more details. The

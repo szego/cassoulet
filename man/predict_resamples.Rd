@@ -4,10 +4,10 @@
 \alias{predict_resamples}
 \title{Predict resampled data using multiple models}
 \usage{
-predict_resamples(.workflows, resamples)
+predict_resamples(objects, resamples)
 }
 \arguments{
-\item{.workflows}{A named list of \code{workflow} objects.}
+\item{objects}{A named list of \code{workflow} objects.}
 
 \item{resamples}{A resample \code{rset} created from an \code{rsample} function such as \code{rsample::vfold_cv()}.}
 }
