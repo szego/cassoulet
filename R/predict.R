@@ -7,13 +7,13 @@ stats::predict
 #' @description
 #' Makes predictions from multiple `workflow` objects.
 #'
-#' @param workflows A named list of fitted `workflow` objects created by `wf_list()`.
+#' @param objects A named list of fitted `workflow` objects created by `wf_list()`.
 #' @param new_data A `data.frame` containing data with which to predict.
 #' @param mode Either "regression" or "classification".
 #'
 #' @return A `data.frame` with one column for each fit's predictions.
 #' @export
-predict.wflist <- function(workflows, new_data, mode) {
+predict.wflist <- function(objects, new_data, mode) {
   if(mode == "regression") {
     type <- "numeric"
   } else if(mode == "classification") {
@@ -22,15 +22,15 @@ predict.wflist <- function(workflows, new_data, mode) {
     stop("`mode` must be one of the following: regression, classification")
   }
 
-  if(is.null(names(workflows)))
-    names(workflows) <- 1:length(workflows)
+  if(is.null(names(objects)))
+    names(objects) <- 1:length(objects)
 
   purrr::map_dfc(
-    1:length(workflows),
+    1:length(objects),
     function(i)
-      workflows[[i]] %>%
+      objects[[i]] %>%
       stats::predict(new_data, type = type) %>%
       dplyr::select(dplyr::starts_with(".pred")[1]) %>%
-      stats::setNames(names(workflows)[i])
+      stats::setNames(names(objects)[i])
   )
 }

@@ -4,10 +4,10 @@
 \alias{predict.wflist}
 \title{Predict using multiple models}
 \usage{
-\method{predict}{wflist}(workflows, new_data, mode)
+\method{predict}{wflist}(objects, new_data, mode)
 }
 \arguments{
-\item{workflows}{A named list of fitted \code{workflow} objects created by \code{wf_list()}.}
+\item{objects}{A named list of fitted \code{workflow} objects created by \code{wf_list()}.}
 
 \item{new_data}{A \code{data.frame} containing data with which to predict.}
 
