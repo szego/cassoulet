@@ -149,7 +149,7 @@ cross_validate.wflist <- function(x, resamples, truth, mode) {
             .model = names(x)[i],
             .correct = .pred_class == !!rlang::sym(truth)
           ) %>%
-          dplyr::select(.model, everything())
+          dplyr::select(.model, dplyr::everything())
       }
     )
 
