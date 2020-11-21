@@ -21,6 +21,7 @@ guess <- function(.workflow, new_data, mode) {
     type <- "prob"
   } else {
     stop("Argument 'mode' must be one of the following: regression, classification")
+    stop("`mode` must be one of the following: regression, classification")
   }
 
   dplyr::bind_cols(
