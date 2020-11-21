@@ -4,10 +4,10 @@
 \alias{count_predictors}
 \title{Get the number of predictors}
 \usage{
-count_predictors(x)
+count_predictors(object)
 }
 \arguments{
-\item{x}{A \code{recipe} object or a \code{workflow} object with an attached recipe.}
+\item{object}{A \code{recipe} object or a \code{workflow} object with an attached recipe.}
 }
 \value{
 An integer.
