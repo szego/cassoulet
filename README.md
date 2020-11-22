@@ -7,7 +7,7 @@
 
 <!-- badges: end -->
 
-*Version 0.0.2.1*
+*Version 0.0.3*
 
 This package provides some helper functions for blending predictions
 from multiple models or multiple datasets with

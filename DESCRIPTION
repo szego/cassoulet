@@ -1,6 +1,6 @@
 Package: cassoulet
 Title: Blend model predictions with ease
-Version: 0.0.2.1
+Version: 0.0.3
 Authors@R: 
     person(given = "Antonio R.",
            family = "Vargas",
@@ -21,7 +21,8 @@ Imports:
     magrittr,
     stats,
     generics,
-    themis,
-    workflows
+    workflows,
+    ranger,
+    xgboost
 URL: https://github.com/szego/cassoulet
 BugReports: https://github.com/szego/cassoulet/issues
