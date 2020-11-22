@@ -21,9 +21,6 @@
 #' `themis::step_slice()` step added to the sequence of existing steps (if any).
 #' @export
 step_multidownsample <- function(recipe, variable) {
-  if(length(variable) > 1)
-    stop("`variable` must be a single factor variable.")
-
   underrep_class_rows <-
     recipe$template %>%
     dplyr::pull({{variable}}) %>%
