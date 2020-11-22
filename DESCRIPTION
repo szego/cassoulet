@@ -21,7 +21,6 @@ Imports:
     magrittr,
     stats,
     generics,
-    themis,
     workflows,
     ranger,
     xgboost
