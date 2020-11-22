@@ -4,23 +4,28 @@
 \alias{step_multidownsample}
 \title{Generate replicate recipes that down-sample the same data}
 \usage{
-step_multidownsample(recipe, ..., .replicates)
+step_multidownsample(recipe, variable)
 }
 \arguments{
 \item{recipe}{A \code{recipe} object.}
 
-\item{...}{One or more selector functions to choose which variable is used
-to sample the data. See \code{recipes::selections()} for more details. The
-selection should result in single factor variable.}
-
-\item{.replicates}{A positive integer indicating how many times to replicate
-the recipe.}
+\item{variable}{A single factor variable to be balanced in the
+down-samples.}
 }
 \value{
 A list of replicates of the provided recipe, each with a new
-\code{themis::step_downsample()} step added to the sequence of existing steps (if any).
+\code{themis::step_slice()} step added to the sequence of existing steps (if any).
 }
 \description{
 \code{step_multidownsample()} replicates a given recipe and adds a
-\code{themis::step_downsample()} step to each replicate.
+\code{themis::step_slice()} step to each replicate.
+}
+\details{
+Each replicate recipe returned by this function includes a \code{step_slice()}
+step that keeps all rows of the data from the under-represented class
+and an equal number of rows from the over-represented class. The rows
+from the over-represented class are chosen at random.
+
+Each row of the over-represented class can appear in at most one
+replicate recipe's \code{step_slice()}.
 }
