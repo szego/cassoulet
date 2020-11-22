@@ -26,12 +26,12 @@ step_multidownsample <- function(recipe, variable) {
 
   underrep_class_rows <-
     recipe$template %>%
-    pull({{variable}}) %>%
+    dplyr::pull({{variable}}) %>%
     (function(y) which(y == levels(y)[1]))
 
   overrep_class_rows <-
     recipe$template %>%
-    pull({{variable}}) %>%
+    dplyr::pull({{variable}}) %>%
     (function(y) which(y == levels(y)[2])) %>%
     sample()
 
