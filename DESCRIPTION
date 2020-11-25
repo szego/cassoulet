@@ -23,6 +23,7 @@ Imports:
     generics,
     workflows,
     ranger,
-    xgboost
+    xgboost,
+    probably
 URL: https://github.com/szego/cassoulet
 BugReports: https://github.com/szego/cassoulet/issues
