@@ -1,4 +1,7 @@
-cv_threshold_perf <- function(object, resamples, outcome, thresholds, ...) {
+cv_threshold_perf <- function(object, resamples, outcome, thresholds = NULL, ...) {
+  if(!("workflow" %in% class(object)))
+    stop("`object` must be a workflow.")
+
   pred_col <-
     paste0(
       ".pred_",
