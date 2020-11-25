@@ -21,7 +21,8 @@
 #' this argument is used, it must be named.
 #' @param ... Additional arguments passed on to `probably::threshold_perf()`.
 #'
-#' @return
+#' @return A `data.frame` containing the resulting metrics for each threshold
+#' and fold.
 #' @export
 cv_threshold_perf <- function(object, resamples, outcome, thresholds = NULL, ...) {
   if(!("workflow" %in% class(object)))

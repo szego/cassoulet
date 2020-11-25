@@ -22,7 +22,8 @@ this argument is used, it must be named.}
 \item{...}{Additional arguments passed on to \code{probably::threshold_perf()}.}
 }
 \value{
-
+A \code{data.frame} containing the resulting metrics for each threshold
+and fold.
 }
 \description{
 This function calculates out-of-sample performance characteristics for class
