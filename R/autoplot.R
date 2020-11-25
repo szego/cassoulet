@@ -2,7 +2,15 @@
 #' @export
 ggplot2::autoplot
 
-autoplot.cv_thresholds_results <- function(x, ...) {
+#' Plot cross-validated threshold metrics
+#'
+#' @param object The data frame produced by `cv_threshold_perf()` or
+#' by `cv_threshold_perf() %>% collect_metrics()`.
+#' @param ... Not currently used.
+#'
+#' @return A `ggplot2` object.
+#' @export
+autoplot.cv_thresholds_results <- function(object, ...) {
   ggplot2::ggplot(x) +
     ggplot2::geom_ribbon(
       ggplot2::aes(
@@ -22,4 +30,13 @@ autoplot.cv_thresholds_results <- function(x, ...) {
       fill = "metric",
       color = "metric"
     )
+}
+
+#' @describeIn autoplot.cv_thresholds_results Can be used directly on the output
+#' of `cv_threshold_perf()`.
+#' @export
+autoplot.cv_thresholds <- function(object, ...) {
+  x %>%
+    collect_metrics() %>%
+    autoplot()
 }
