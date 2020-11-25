@@ -24,6 +24,7 @@ Imports:
     workflows,
     ranger,
     xgboost,
-    probably
+    probably,
+    ggplot2
 URL: https://github.com/szego/cassoulet
 BugReports: https://github.com/szego/cassoulet/issues
