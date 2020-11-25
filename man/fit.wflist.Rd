@@ -4,12 +4,14 @@
 \alias{fit.wflist}
 \title{Fit a list of models}
 \usage{
-\method{fit}{wflist}(workflows, data)
+\method{fit}{wflist}(object, data, ...)
 }
 \arguments{
-\item{workflows}{A named list of \code{workflow} objects created by \code{wf_list()}.}
+\item{object}{A named list of \code{workflow} objects created by \code{wf_list()}.}
 
 \item{data}{A \code{data.frame} containing data on which to fit the workflows.}
+
+\item{...}{Arguments passed on to \code{fit.workflow()}.}
 }
 \value{
 A named list of fitted \code{workflow} objects.
