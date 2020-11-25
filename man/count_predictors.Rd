@@ -2,9 +2,15 @@
 % Please edit documentation in R/count_predictors.R
 \name{count_predictors}
 \alias{count_predictors}
+\alias{count_predictors.recipe}
+\alias{count_predictors.workflow}
 \title{Get the number of predictors}
 \usage{
 count_predictors(object)
+
+\method{count_predictors}{recipe}(object)
+
+\method{count_predictors}{workflow}(object)
 }
 \arguments{
 \item{object}{A \code{recipe} object or a \code{workflow} object with an attached recipe.}
@@ -15,3 +21,10 @@ An integer.
 \description{
 Returns the number of variables with the "predictor" role in a recipe or workflow.
 }
+\section{Methods (by class)}{
+\itemize{
+\item \code{recipe}: Get the number of predictors in a recipe.
+
+\item \code{workflow}: Get the number of predictors in a workflow with a recipe.
+}}
+

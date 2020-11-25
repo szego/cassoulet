@@ -11,13 +11,13 @@ count_predictors <- function(object) {
   UseMethod("count_predictors", object)
 }
 
-#' @describeIn count_predictors
+#' @describeIn count_predictors Get the number of predictors in a recipe.
 #' @export
 count_predictors.recipe <- function(object) {
   sum(object$var_info$role == "predictor")
 }
 
-#' @describeIn count_predictors
+#' @describeIn count_predictors Get the number of predictors in a workflow with a recipe.
 #' @export
 count_predictors.workflow <- function(object) {
   sum(workflows::pull_workflow_preprocessor(object)$var_info$role == "predictor")
