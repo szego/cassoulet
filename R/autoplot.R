@@ -11,7 +11,7 @@ ggplot2::autoplot
 #' @return A `ggplot2` object.
 #' @export
 autoplot.cv_thresholds_results <- function(object, ...) {
-  ggplot2::ggplot(x) +
+  ggplot2::ggplot(object) +
     ggplot2::geom_ribbon(
       ggplot2::aes(
         x = .threshold,
@@ -36,7 +36,7 @@ autoplot.cv_thresholds_results <- function(object, ...) {
 #' of `cv_threshold_perf()`.
 #' @export
 autoplot.cv_thresholds <- function(object, ...) {
-  x %>%
+  object %>%
     collect_metrics() %>%
     autoplot()
 }
