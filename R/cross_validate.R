@@ -22,19 +22,19 @@
 #'
 #' @param x A `workflow` object or a `wflist` of `workflow` objects created by `wf_list()`.
 #' @param resamples A resample `rset` created from an `rsample` function such as `rsample::vfold_cv()`.
-#' @param truth A character string containing the column identifier for the true class results.
+#' @param outcome A character string containing the column identifier for the outcome variable.
 #' @param mode Either "regression" or "classification".
 #'
 #' @return A `data.frame` containing the resulting metrics and their standard errors. When
 #' `x` is a `wflist`, there is a row for each workflow's metrics.
 #' @export
-cross_validate <- function(x, resamples, truth, mode) {
+cross_validate <- function(x, resamples, outcome, mode) {
   UseMethod("cross_validate", x)
 }
 
 #' @describeIn cross_validate Cross-validates a single workflow.
 #' @export
-cross_validate.workflow <- function(x, resamples, truth, mode) {
+cross_validate.workflow <- function(x, resamples, outcome, mode) {
   if(mode == "regression") {
     x %>%
       tune::fit_resamples(
@@ -44,8 +44,8 @@ cross_validate.workflow <- function(x, resamples, truth, mode) {
       tune::collect_predictions() %>%
       dplyr::group_by(id) %>%
       dplyr::summarize(
-        mse = mean((.pred - !!rlang::sym(truth))^2),
-        mse_var = stats::var((.pred - !!rlang::sym(truth))^2),
+        mse = mean((.pred - !!rlang::sym(outcome))^2),
+        mse_var = stats::var((.pred - !!rlang::sym(outcome))^2),
         .groups = "drop"
       ) %>%
       dplyr::summarize(  # average the estimates from the folds
@@ -62,7 +62,7 @@ cross_validate.workflow <- function(x, resamples, truth, mode) {
       tune::collect_predictions() %>%
       dplyr::group_by(id) %>%
       dplyr::summarize(
-        acc = mean(.pred_class == !!rlang::sym(truth)),
+        acc = mean(.pred_class == !!rlang::sym(outcome)),
         acc_var = acc*(1-acc)/dplyr::n(),
         .groups = "drop"
       ) %>%
@@ -78,7 +78,7 @@ cross_validate.workflow <- function(x, resamples, truth, mode) {
 
 #' @describeIn cross_validate Cross-validates multiple workflows and generates comparison metrics.
 #' @export
-cross_validate.wflist <- function(x, resamples, truth, mode) {
+cross_validate.wflist <- function(x, resamples, outcome, mode) {
   if(is.null(names(x)))
     names(x) <- 1:length(x)
 
@@ -90,7 +90,7 @@ cross_validate.wflist <- function(x, resamples, truth, mode) {
           tune::collect_predictions() %>%
           dplyr::mutate(
             .model = names(x)[i],
-            .sq_residual = (.pred - !!rlang::sym(truth))^2
+            .sq_residual = (.pred - !!rlang::sym(outcome))^2
           ) %>%
           dplyr::select(.model, dplyr::everything())
       }
@@ -147,7 +147,7 @@ cross_validate.wflist <- function(x, resamples, truth, mode) {
           tune::collect_predictions() %>%
           dplyr::mutate(
             .model = names(x)[i],
-            .correct = .pred_class == !!rlang::sym(truth)
+            .correct = .pred_class == !!rlang::sym(outcome)
           ) %>%
           dplyr::select(.model, dplyr::everything())
       }

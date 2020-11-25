@@ -6,18 +6,18 @@
 \alias{cross_validate.wflist}
 \title{Cross-validate your workflows}
 \usage{
-cross_validate(x, resamples, truth, mode)
+cross_validate(x, resamples, outcome, mode)
 
-\method{cross_validate}{workflow}(x, resamples, truth, mode)
+\method{cross_validate}{workflow}(x, resamples, outcome, mode)
 
-\method{cross_validate}{wflist}(x, resamples, truth, mode)
+\method{cross_validate}{wflist}(x, resamples, outcome, mode)
 }
 \arguments{
 \item{x}{A \code{workflow} object or a \code{wflist} of \code{workflow} objects created by \code{wf_list()}.}
 
 \item{resamples}{A resample \code{rset} created from an \code{rsample} function such as \code{rsample::vfold_cv()}.}
 
-\item{truth}{A character string containing the column identifier for the true class results.}
+\item{outcome}{A character string containing the column identifier for the outcome variable.}
 
 \item{mode}{Either "regression" or "classification".}
 }
